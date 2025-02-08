@@ -1,0 +1,12 @@
+numpy
+pandas
+matplotlib
+opencv-python
+tqdm
+pillow
+opencv-python
+ultralytics
+tensorflow
+streamlit
+opencv-python-headless
+pillow
