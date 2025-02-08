@@ -22,17 +22,16 @@ custom_class_names = {
     8: 'Yellow Leaf Curl Virus'
 }
 
-# Softer, eye-friendly colors for each class
 colors = {
-    0: (173, 216, 230),  # Light Blue
-    1: (144, 238, 144),  # Light Green
-    2: (255, 182, 193),  # Light Pink
-    3: (240, 230, 140),  # Khaki
-    4: (221, 160, 221),  # Plum
-    5: (175, 238, 238),  # Pale Turquoise
-    6: (238, 130, 238),  # Violet
-    7: (255, 222, 173),  # Navajo White
-    8: (152, 251, 152)   # Pale Green
+    0: (173, 216, 230),
+    1: (144, 238, 144),
+    2: (255, 182, 193),
+    3: (240, 230, 140),
+    4: (221, 160, 221),
+    5: (175, 238, 238),
+    6: (238, 130, 238),
+    7: (255, 222, 173),
+    8: (152, 251, 152)
 }
 
 st.title("Tomato Disease Detection")
@@ -49,7 +48,7 @@ if uploaded_image is not None:
     original_image = image.copy()
     st.write("Uploaded Image:")
     col1, col2 = st.columns(2)
-    col1.image(original_image, caption="Original Image", use_column_width=True)
+    col1.image(original_image, caption="Original Image", use_container_width=True)
     results = model(image)
     boxes = results[0].boxes.xyxy.cpu().numpy()
     class_ids = results[0].boxes.cls.cpu().numpy()
@@ -84,7 +83,7 @@ if uploaded_image is not None:
         cv2.putText(image, label_1, (label_x, label_y - label_size_2[1] - 5), cv2.FONT_HERSHEY_SIMPLEX, 0.5, (0, 0, 0), 2)
         cv2.putText(image, label_2, (label_x, label_y), cv2.FONT_HERSHEY_SIMPLEX, 0.5, (0, 0, 0), 2)
 
-    col2.image(image, caption="Processed Image", use_column_width=True)
+    col2.image(image, caption="Processed Image", use_container_width=True)
 
     end_time = time.time()
     processing_time = end_time - start_time
